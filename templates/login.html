@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block title %} Login {% endblock %}
+
+{% block content %}
+
+    <form method="post" id="container-form">
+        {{ form.hidden_tag() }}
+
+        {{ form.nome.label(class='form-label text-white') }}
+        {{ form.nome(class='form-control', required=false) }}
+        
+        {% for erro in form.nome.errors %}
+            {% if erro %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                    {{ erro }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {{ form.email.label(class='form-label text-white mt-4') }}
+        {{ form.email(class='form-control', required=false) }}
+        
+        {% for erro in form.email.errors %}
+            {% if erro %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                    {{ erro }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        {% with msgs = get_flashed_messages() %}
+            {% if msgs %}
+                {% for msg in msgs  %}
+
+                    <div class="alert alert-success alert-dismissible fade show">
+                        {{ msg }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {{ form.enviar(class='btn btn-primary mt-4') }}
+
+    </form>
+
+{% endblock %}

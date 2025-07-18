@@ -1,0 +1,45 @@
+
+
+main {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+#container-form {
+    background-color: rgb(66, 71, 80);
+
+    display: flex;
+    flex-direction: column;
+
+    border-radius: 4%;
+
+    justify-content: center;
+    
+    margin: 2%;
+    padding: 4%;
+
+    height: 30rem;
+    width: 30rem;
+
+    
+}
+
+@media (max-width: 48rem) {
+
+        #container-form{
+            height: 20rem;
+            width: 20rem;
+        }    
+    }
+
+@media (max-width: 24rem) {
+
+        #container-form{
+            height: 15rem;
+            width: 15rem;
+
+            margin-top: 3rem;
+        }    
+    }
